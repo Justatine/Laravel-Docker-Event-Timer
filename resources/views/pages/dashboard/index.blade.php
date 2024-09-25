@@ -6,35 +6,60 @@
     <div class="mx-auto sm:w-full">
         <div class="grid grid-cols-1 lg:grid-cols-2 sm:grid-cols-1 gap-4">
             <div class="w-full lg:p-8 sm:p-0">
-                <div class="flex justify-between bg-gray-50 rounded p-4">
-                    <p>tesy</p>
-                    <p>tesy</p>
+                <div class="bg-gray-50 rounded-lg p-4">
+                                   
+                    {{-- @include('partials.alerts', ['status' => session('status'), 'message' => session('message')]) --}}
+                    @include('partials.alerts')
+
+                    <form class="max-w-lg py-5" method="POST" action="{{ url('/add') }}">
+                        @csrf
+                        <div class="mb-5">
+                            <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Event Title:</label>
+                            <input type="text" name="name" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter event title" required />
+                        </div>
+                        <div class="mb-5">
+                            <label for="deadline" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Deadline:</label>
+                            <input type="datetime-local" name="deadline" id="deadline" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
+                        </div>
+                        <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
+                    </form>
                 </div>
             </div>
             <div class="w-full lg:p-8 sm:p-0">
-                <div class="grid grid-cols-1 lg:grid-cols-3 sm:grid-cols-1 gap-4">
+                <div class="grid grid-cols-1 lg:grid-cols-2 sm:grid-cols-1 gap-4">
                     @if ($events->count() > 0)
                         @foreach ($events as $event)
                             <div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                                <svg class="w-7 h-7 text-gray-500 dark:text-gray-400 mb-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                                    <path d="M18 5h-.7c.229-.467.349-.98.351-1.5a3.5 3.5 0 0 0-3.5-3.5c-1.717 0-3.215 1.2-4.331 2.481C8.4.842 6.949 0 5.5 0A3.5 3.5 0 0 0 2 3.5c.003.52.123 1.033.351 1.5H2a2 2 0 0 0-2 2v3a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1V7a2 2 0 0 0-2-2ZM8.058 5H5.5a1.5 1.5 0 0 1 0-3c.9 0 2 .754 3.092 2.122-.219.337-.392.635-.534.878Zm6.1 0h-3.742c.933-1.368 2.371-3 3.739-3a1.5 1.5 0 0 1 0 3h.003ZM11 13H9v7h2v-7Zm-4 0H2v5a2 2 0 0 0 2 2h3v-7Zm6 0v7h3a2 2 0 0 0 2-2v-5h-5Z"/>
-                                </svg>
-                                <a href="#">
-                                    <h5 class="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">Need a help in Claim?</h5>
-                                </a>
-                                <p class="mb-3 font-normal text-gray-500 dark:text-gray-400">Go to this step by step guideline process on how to certify for your weekly benefits:</p>
-                                <a href="#" class="inline-flex font-medium items-center text-blue-600 hover:underline">
-                                    See our guideline
-                                    <svg class="w-3 h-3 ms-2.5 rtl:rotate-[270deg]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
-                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11v4.833A1.166 1.166 0 0 1 13.833 17H2.167A1.167 1.167 0 0 1 1 15.833V4.167A1.166 1.166 0 0 1 2.167 3h4.618m4.447-2H17v5.768M9.111 8.889l7.778-7.778"/>
+                                <div class="flex justify-between">
+                                    <h5 class="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">{{ $event->name }}</h5>
+
+                                    <svg class="w-7 h-7 text-gray-500 dark:text-gray-400 mb-3" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M12 0c6.623 0 12 5.377 12 12s-5.377 12-12 12-12-5.377-12-12 5.377-12 12-12zm0 1c6.071 0 11 4.929 11 11s-4.929 11-11 11-11-4.929-11-11 4.929-11 11-11zm0 11h6v1h-7v-9h1v8z"/>
                                     </svg>
-                                </a>
+                                </div>
+                                <p class="mb-3 font-normal text-gray-500 dark:text-gray-400">
+                                    Deadline: {{ $event->deadline }}
+                                </p>
+                                <p class="mb-3 font-normal text-red-500 dark:text-red-400">
+                                    Remaining Time: {{ \Carbon\Carbon::parse($event->deadline)->diffForHumans() }}
+                                    {{ \Carbon\Carbon::now()->diffInHours(\Carbon\Carbon::parse($event->deadline)) % 24 }} hours, and 
+                                    {{ \Carbon\Carbon::now()->diffInMinutes(\Carbon\Carbon::parse($event->deadline)) % 60 }} minutes
+                                </p>
+                                <div class="flex justify-between">
+                                    @include('partials.badges', ['status' => $event->status])
+                                    <div class="flex gap-4">
+                                        <span>
+                                            <a href="/dashboard/event?={{ $event->eventId }}"><button id="btn-edit" data-id="{{ $event->eventId }}">Edit</button></a>
+                                        </span>
+                                        <span>
+                                            <button id="btn-delete" data-id="{{ $event->eventId }}">Delete</button>
+                                        </span>
+                                    </div>
+                                </div>
                             </div>
                         @endforeach
                     @else
-                        <p>no data</p>
+                        <p class="text-2xl bold italic">No event/s added</p>
                     @endif
-                    
                 </div>
             </div>
         </div>

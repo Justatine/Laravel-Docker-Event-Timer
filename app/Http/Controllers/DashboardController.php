@@ -12,6 +12,12 @@ class DashboardController extends Controller
         $user = Auth::user();
         $events = Events::where('userId', $user->id)->orderByDesc('created_at')->get();
 
+        foreach ($events as $event) {
+            if (isset($event->deadline)) {
+                $event->deadline = date_format(date_create($event->deadline), 'M d, Y H:i:s');
+            }
+        }
+
         return view('pages.dashboard.index',[
             'user' => $user,
             'events' => $events

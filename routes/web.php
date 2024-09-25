@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\EventController;
 
 Route::get('/', function () {
     return view('pages.home');
@@ -10,6 +11,8 @@ Route::get('/', function () {
 
 route::middleware(['auth', 'is_authenticated'])->group(function () {    
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::post('/add', [EventController::class, 'addEvent']);
+    Route::delete('/delete', [EventController::class, 'deleteEvent']);
 });
 
 Route::get('/sign-in', [AuthController::class, 'signin'])->name('login');
