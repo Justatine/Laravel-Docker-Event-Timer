@@ -1,4 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
+    const url = 'http://127.0.0.1:8000';
+
     document.getElementById('mobile-menu-button').addEventListener('click', function() {
         const menu = document.getElementById('navbar-default');
         menu.classList.toggle('hidden');
@@ -9,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
             var eventId = this.getAttribute('data-id');
             var csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
             
-            fetch('http://127.0.0.1:8000/delete', {
+            fetch(`${url}/delete`, {
                 method: "DELETE",
                 headers: {
                     "Content-Type": "application/json",

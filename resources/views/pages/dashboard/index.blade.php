@@ -8,7 +8,6 @@
             <div class="w-full lg:p-8 sm:p-0">
                 <div class="bg-gray-50 rounded-lg p-4">
                                    
-                    {{-- @include('partials.alerts', ['status' => session('status'), 'message' => session('message')]) --}}
                     @include('partials.alerts')
 
                     <form class="max-w-lg py-5" method="POST" action="{{ url('/add') }}">
@@ -48,7 +47,9 @@
                                     @include('partials.badges', ['status' => $event->status])
                                     <div class="flex gap-4">
                                         <span>
-                                            <a href="/dashboard/event?={{ $event->eventId }}"><button id="btn-edit" data-id="{{ $event->eventId }}">Edit</button></a>
+                                            <a href="/dashboard/event?eventId={{ $event->eventId }}">
+                                                <button id="btn-edit" data-id="{{ $event->eventId }}">Edit</button>
+                                            </a>
                                         </span>
                                         <span>
                                             <button id="btn-delete" data-id="{{ $event->eventId }}">Delete</button>

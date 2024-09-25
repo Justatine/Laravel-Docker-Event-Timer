@@ -9,10 +9,12 @@ Route::get('/', function () {
     return view('pages.home');
 });
 
-route::middleware(['auth', 'is_authenticated'])->group(function () {    
+Route::middleware(['auth', 'is_authenticated'])->group(function () {    
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::post('/add', [EventController::class, 'addEvent']);
     Route::delete('/delete', [EventController::class, 'deleteEvent']);
+    Route::get('/dashboard/event', [EventController::class, 'edit'])->name('event.edit');
+    Route::put('/event/{event}', [EventController::class, 'update'])->name('event.update');
 });
 
 Route::get('/sign-in', [AuthController::class, 'signin'])->name('login');
