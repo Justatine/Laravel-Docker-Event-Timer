@@ -35,3 +35,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }, 3000);
 })
+document.addEventListener('DOMContentLoaded', (event) => {
+    const today = new Date();
+    const formattedDate = today.toISOString().slice(0, 16);
+    document.getElementById('deadline').setAttribute('min', formattedDate);
+});

@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Events extends Model
 {
     use HasFactory;
+    public $timestamps = true; 
     protected $primaryKey = 'eventId';
     protected $fillable = ['name', 'deadline', 'userId', 'status'];
 }

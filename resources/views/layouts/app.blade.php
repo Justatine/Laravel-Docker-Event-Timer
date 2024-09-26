@@ -13,7 +13,7 @@
 
     @include('components.header')
 
-    <div class="container flex-grow  p-8">
+    <div class="container flex-grow p-8">
         @yield('content')
     </div>
 

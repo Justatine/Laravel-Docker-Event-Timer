@@ -17,7 +17,8 @@ class EventController extends Controller
         ]);
 
         $data['userId'] = $user->id;
-
+        $data['created_at'] = now();
+        
         $query = Events::insert($data);  
         if (!$query) {
             return redirect()->back()->withErrors(['add'=>'Unable to add event']);
@@ -72,7 +73,8 @@ class EventController extends Controller
         ]);
 
         $data['eventId'] = $eventId;
-
+        $data['updated_at'] = now();
+        
         $event = Events::where('eventId', $eventId)->update($data);
         if (!$event) {
             return redirect()->back()->withErrors(['error'=>'Failed updating event.']);
