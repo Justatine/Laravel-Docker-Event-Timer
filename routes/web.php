@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Livewire\Post;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EventController;
@@ -8,6 +9,9 @@ use App\Http\Controllers\EventController;
 Route::get('/', function () {
     return view('pages.home');
 });
+
+Route::get('/posts', [Post::class, 'render']);
+// Route::get('/posts', [DashboardController::class, 'posts']);
 
 Route::middleware(['auth', 'is_authenticated'])->group(function () {    
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');

@@ -34,7 +34,55 @@ document.addEventListener('DOMContentLoaded', function() {
             }, 500); 
         });
     }, 3000);
+
+    // const showDrawerBtn = document.querySelector('[data-drawer-show="drawer-example"]');
+    // const hideDrawerBtn = document.querySelector('[data-drawer-hide="drawer-example"]');
+    // const drawer = document.getElementById('drawer-example');
+
+    // function toggleDrawer() {
+    //   if (drawer.classList.contains('-translate-x-full')) {
+    //     drawer.classList.remove('-translate-x-full'); 
+    //   } else {
+    //     drawer.classList.add('-translate-x-full'); 
+    //   }
+    // }
+
+    // showDrawerBtn.addEventListener('click', () => {
+    //   toggleDrawer();
+    // });
+
+    // hideDrawerBtn.addEventListener('click', () => {
+    //   toggleDrawer();
+    // });
+
+    const modalToggleBtns = document.querySelectorAll('[data-modal-toggle]');
+    const modalCloseBtns = document.querySelectorAll('[data-modal-hide]');
+    
+    modalToggleBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const targetModal = document.getElementById(btn.getAttribute('data-modal-target'));
+            toggleModal(targetModal);
+        });
+    });
+
+    modalCloseBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const modal = btn.closest('.modal');
+            if (modal) {
+                toggleModal(modal);
+            }
+        });
+    });
+
+    function toggleModal(modal) {
+        if (modal.classList.contains('hidden')) {
+            modal.classList.remove('hidden');
+        } else {
+            modal.classList.add('hidden');
+        }
+    }
 })
+
 document.addEventListener('DOMContentLoaded', (event) => {
     const today = new Date();
     const formattedDate = today.toISOString().slice(0, 16);
