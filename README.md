@@ -40,11 +40,11 @@ No ideas about livewire? Try to watch this [video](https://www.youtube.com/watch
 5. Create Model and Migration
     - php artisan make:model _modelName_ -m
 6. Modify inside model
-    - public $timestamps = true; /
-    protected $fillable = [
+    - public $timestamps = true; 
+    - protected $fillable = [
         'prod_no',
         'category',
         'prod_name'
-    ];/
-    protected $guarded = [];/
-    protected $primaryKey = 'you_primary_key';/
+    ]; 
+    - protected $guarded = [];
+    - protected $primaryKey = 'you_primary_key';
