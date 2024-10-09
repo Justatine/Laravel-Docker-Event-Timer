@@ -33,12 +33,12 @@ No ideas about livewire? Try to watch this [video](https://www.youtube.com/watch
 > [!IMPORTANT]
 > Steps to create laravel project
 
-1. composer create-project laravel/laravel **_project_name_** \
-2. Open config/app.php set **'timezone'=>'Asia/Manila'** \
-3. Modify charset and collation in config/database.php **'charset'=>'utf8'** and **'collation'=>'utf8_general_ci'** \
-4. Modify .env \
+1. composer create-project laravel/laravel **_project_name_** 
+2. Open config/app.php set **'timezone'=>'Asia/Manila'** 
+3. Modify charset and collation in config/database.php **'charset'=>'utf8'** and **'collation'=>'utf8_general_ci'** 
+4. Modify .env 
 5. Create Model and Migration
-    - php artisan make:model _modelName_ -m
+    - php artisan make:model **_modelName_** -m
 6. Modify inside model
     - public $timestamps = true; 
     - protected $fillable = [
@@ -47,9 +47,9 @@ No ideas about livewire? Try to watch this [video](https://www.youtube.com/watch
         'prod_name'
     ]; 
     - protected $guarded = [];
-    - protected $primaryKey = 'you_primary_key';
+    - protected $primaryKey = '**you_primary_key**';
 7. Configure migration 
-    - Open app/database/migrations/you_migration_table.php
+    - Open app/database/migrations/**you_migration_table**.php
 8. Migrate database
     - php artisan migrate
 9. Create Controller
