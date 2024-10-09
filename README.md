@@ -29,3 +29,5 @@ Livewire Docs: [URL](https://livewire.laravel.com/docs)
 Initialize livewire: "composer require livewire/livewire".\
 Make a livewire component: "php artisan make:livewire Counter".\
 No ideas about livewire? Try to watch this [video](https://www.youtube.com/watch?v=hL7sVFSkph8) to have some.
+
+## `Important Commands`
