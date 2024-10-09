@@ -30,4 +30,21 @@ Initialize livewire: "composer require livewire/livewire".\
 Make a livewire component: "php artisan make:livewire Counter".\
 No ideas about livewire? Try to watch this [video](https://www.youtube.com/watch?v=hL7sVFSkph8) to have some.
 
-## `Important Commands`
+> [!IMPORTANT]
+> Steps to create laravel project
+
+1. composer create-project laravel/laravel **_project_name_** \
+2. Open config/app.php set **'timezone'=>'Asia/Manila'** \
+3. Modify charset and collation in config/database.php **'charset'=>'utf8'** and **'collation'=>'utf8_general_ci'** \
+4. Modify .env \
+5. Create Model and Migration
+    -php artisan make:model _modelName_ -m
+6. Modify inside model
+    - public $timestamps = true; 
+    protected $fillable = [
+        'prod_no',
+        'category',
+        'prod_name'
+    ];
+    protected $guarded = [];
+    protected $primaryKey = 'you_primary_key';
