@@ -48,3 +48,13 @@ No ideas about livewire? Try to watch this [video](https://www.youtube.com/watch
     ]; 
     - protected $guarded = [];
     - protected $primaryKey = 'you_primary_key';
+7. Configure migration 
+    - Open app/database/migrations/you_migration_table.php
+8. Migrate database
+    - php artisan migrate
+9. Create Controller
+    - php artisan make:controller **Controller_name**
+    - Open app/Http/Controllers/**your_controller_name**.php
+10. Configure Controller
+11. Run Laravel Server
+    - php artisan serve
