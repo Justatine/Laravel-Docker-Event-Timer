@@ -40,26 +40,75 @@ return new class extends Migration
 
         User::insert([
             [
-                'name'=>'Justine',
-                'email'=>'tagaanjustinemark3@gmail.com',
-                'password'=>Hash::make('asd'),
+                'name' => 'Christine Simbajon',
+                'email' => 'christine@gmail.com',
+                'password' => Hash::make('password'),
                 'created_at' => now(),
-                'updated_at' => now()
+                'updated_at' => now(),
             ],
             [
-                'name'=>'Mark',
-                'email'=>'tagaanjustinemark2@gmail.com',
-                'password'=>Hash::make('asd'),
+                'name' => 'Liam',
+                'email' => 'liam2@gmail.com',
+                'password' => Hash::make('password'),
                 'created_at' => now(),
-                'updated_at' => now()
+                'updated_at' => now(),
             ],
             [
-                'name'=>'Adelle',
-                'email'=>'adellepabriga@gmail.com',
-                'password'=>Hash::make('asd'),
+                'name' => 'Emma',
+                'email' => 'emma3@gmail.com',
+                'password' => Hash::make('password'),
                 'created_at' => now(),
-                'updated_at' => now()
-            ]
+                'updated_at' => now(),
+            ],
+            [
+                'name' => 'James',
+                'email' => 'james4@gmail.com',
+                'password' => Hash::make('password'),
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'name' => 'Olivia',
+                'email' => 'olivia5@gmail.com',
+                'password' => Hash::make('password'),
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'name' => 'Mark',
+                'email' => 'mark6@gmail.com',
+                'password' => Hash::make('password'),
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'name' => 'Isabella',
+                'email' => 'isabella7@gmail.com',
+                'password' => Hash::make('password'),
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'name' => 'Noah',
+                'email' => 'noah8@gmail.com',
+                'password' => Hash::make('password'),
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'name' => 'Justine',
+                'email' => 'justine9@gmail.com',
+                'password' => Hash::make('password'),
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'name' => 'Ava',
+                'email' => 'ava10@gmail.com',
+                'password' => Hash::make('password'),
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
         ]);
     }
 
